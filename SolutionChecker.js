@@ -74,7 +74,7 @@
 			
 			if ( pathCase === false ) {
 			
-				solMsg.push( { 'type' : 'warning', 'body' : 'waProject file wont be found on case sensitive filesystems : ' + waProjPath } );
+				solMsg.push( { 'type' : 'warning', 'body' : 'waProject file won\'t be found on case sensitive filesystems : ' + waProjPath } );
 			
 			};			
 		
@@ -111,7 +111,7 @@
 			
 			if ( pathCase === false ) {
 			
-				solMsg.push( { 'type' : 'warning', 'body' : 'File wont be found on case sensitive filesystems : ' + waFilePath } );
+				solMsg.push( { 'type' : 'warning', 'body' : 'File won\'t be found on case sensitive filesystems : ' + waFilePath } );
 			
 			};
 		
@@ -204,7 +204,7 @@ function parseWaProj ( waProjPath ) {
 			
 			if ( pathCase === false ) {
 			
-				projMsg.push( { 'type' : 'warning', 'body' : 'File wont be found on case sensitive filesystems : ' + waFilePath } );
+				projMsg.push( { 'type' : 'warning', 'body' : 'File won\'t be found on case sensitive filesystems : ' + waFilePath } );
 			
 			};
 		
@@ -237,7 +237,7 @@ function parseWaProj ( waProjPath ) {
 			
 			if ( pathCase === false ) {
 			
-				projMsg.push( { 'type' : 'warning', 'body' : 'Folder wont be found on case sensitive filesystems : ' + waFolderPath } );
+				projMsg.push( { 'type' : 'warning', 'body' : 'Folder won\'t be found on case sensitive filesystems : ' + waFolderPath } );
 			
 			};
 		
