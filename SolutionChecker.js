@@ -127,6 +127,32 @@
 	
 };
 
+exports.findWaSolutionPath	= function findWaSolutionPath(destFolder) {
+
+	var solutionPathStr = null;
+
+	//From the Git Extension
+	var folderIter = destFolder.firstFolder;
+	while (folderIter.valid()) {
+		var pos = folderIter.name.lastIndexOf(' Solution');
+		if (pos != -1 && pos + 9 === folderIter.name.length) {
+			var fileIter = folderIter.firstFile;
+			while (fileIter.valid()) {
+				if (fileIter.extension.toLowerCase() === 'wasolution') {
+					solutionPathStr = fileIter.path;
+					break;
+				}
+				fileIter.next();
+			}
+			break;
+		}
+		folderIter.next(); // increment the iteration
+	};
+
+	return solutionPathStr;
+
+};
+
 function fixPath( inPath ) {
 
 	var outPath	= inPath.replace(/[^\/]+\/\.\.\//g,'');
