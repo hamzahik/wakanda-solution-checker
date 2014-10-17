@@ -212,7 +212,38 @@ function parseWaProj ( waProjPath ) {
 		
 			projMsg.push( { 'type' : 'error', 'body' : 'File does not exist : ' + waFilePath } );
 		
-		};		
+		};
+		
+		if (waFile.tag[0].name == 'settings'){
+	        	var content = fWaFile.toString();
+	        	
+	        	if (isXML(content)){
+		            jWaSettings = parseAsXML(content, 'settings');
+		            
+		        } else {
+		            projMsg.push({
+		                'type': 'error',
+		                'body': 'Settings file is not in XML format'
+		            });
+	
+		            return output;
+		        };
+	        	
+	        	if (jWaSettings.project[0].listen != '0' && jWaSettings.project[0].listen != '0.0.0.0'){
+				projMsg.push({
+			            'type': 'warning',
+			            'body': 'Project won\'t accept incoming connections; it listens on: ' + jWaSettings.project[0].listen
+			        });
+			}
+				
+			if (jWaSettings.http[0].port != '8081'){
+				projMsg.push({
+			            'type': 'warning',
+			            'body': 'Project won\'t accept incoming connections; it must listen on port: 8081'
+			        });
+			}
+				
+	    	}
 	
 	};
 	
